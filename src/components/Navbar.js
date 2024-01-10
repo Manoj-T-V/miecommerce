@@ -9,6 +9,7 @@ const Navbar = () => {
         <div className="nav">
 
             
+            
 
              <a  className="navlinks" href="/#miphones">Mi Phones</a>
            <a   className="navlinks"  href="/#redmiphones">Redmi Phones</a>

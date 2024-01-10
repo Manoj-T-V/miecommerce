@@ -39,17 +39,17 @@ function App() {
        <Heading text="HOT ACCESSORIES" />
        <HotAccessoriesMenu />
        
-       <Heading text="music" />
+       <Heading text="MUSIC" />
           <HotAccessories music={data.hotAccessories.music} musicCover={data.hotAccessoriesCover.music}  />
-          <Heading text="Smart Devices" />
+          <Heading text="SMART DEVICES" />
           <HotAccessories smartDevice={data.hotAccessories.smartDevice} smartDeviceCover={data.hotAccessoriesCover.smartDevice}  />
-          <Heading text="Home accesories" />
+          <Heading text="HOME ACCESORIES" />
 
           <HotAccessories home={data.hotAccessories.home} homeCover={data.hotAccessoriesCover.home}  />
-          <Heading text="lifestyle" />
+          <Heading text="LIFESTYLE" />
 
           <HotAccessories lifeStyle={data.hotAccessories.lifeStyle} lifeStyleCover={data.hotAccessoriesCover.lifeStyle}  />
-          <Heading text="Mobile accesories" />
+          <Heading text="MOBILE ACCESORIES" />
 
           <HotAccessories mobileAccessories={data.hotAccessories.mobileAccessories} mobileAccessoriesCover={data.hotAccessoriesCover.mobileAccessories}  />
 
