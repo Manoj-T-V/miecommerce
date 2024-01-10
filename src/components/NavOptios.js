@@ -6,7 +6,7 @@ import "../styles/NavOptios.css"
 
 
 const NavOptios = ( {miPhones,redmiPhones,tv,laptop,fitnessAndLifeStyle,home,audio,accessories}) => {
-
+   const [hashValue, setHashValue] = useState('');
    const [miPhoneToggle, setMiPhoneToggle] = useState(false);
    const [redmiPhoneToggle,setRedmiPhoneToggle] = useState(false);
    const [tvToggle,setTvToggle] = useState(false);
@@ -15,40 +15,65 @@ const NavOptios = ( {miPhones,redmiPhones,tv,laptop,fitnessAndLifeStyle,home,aud
    const [homeToggle,setHomeToggle] = useState(false);
    const [audioToggle,setAudioToggle] = useState(false);
    const [accessoriesToggle,setAccessoriesToggle] = useState(false);
+
+   const resettoggles = () =>{
+    setMiPhoneToggle(false);
+  setRedmiPhoneToggle(false);
+  setTvToggle(false);
+  setLaptopToggle(false);
+  setFitnessToggle(false);
+  setHomeToggle(false);
+  setAudioToggle(false);
+  setAccessoriesToggle(false);
+   }
  
+   useEffect(() => {
+    const handleHashChange = () => {
+        const currentHash = window.location.hash;
+        setHashValue(currentHash);
+    };
+
+    window.addEventListener('hashchange', handleHashChange);
+
+    // Clean up the event listener when the component unmounts
+    return () => {
+        window.removeEventListener('hashchange', handleHashChange);
+    };
+}, []);
 
    useEffect(() => {
-     
-    if(window.location.pathname === "/#miphones"){
+    resettoggles();
+    if(window.location.hash === "#miphones"){
         return   setMiPhoneToggle(true)
        }
-     if(window.location.pathname === "/#redmiphones"){
+     if(window.location.hash === "#redmiphones"){
         return   setRedmiPhoneToggle(true)
        }
-       if(window.location.pathname === "/#tv"){
+       if(window.location.hash === "#tv"){
         return   setTvToggle(true)
        }
-       if(window.location.pathname === "/#laptops"){
+       if(window.location.hash === "#laptops"){
         return   setLaptopToggle(true)
        }
-       if(window.location.pathname === "/#lifestyle"){
+       if(window.location.hash === "#lifestyle"){
         return  setFitnessToggle(true)
        }
-       if(window.location.pathname === "/#home"){
+       if(window.location.hash === "#home"){
         return  setHomeToggle(true)
        }
-       if(window.location.pathname === "/#audio"){
+       if(window.location.hash === "#audio"){
         return  setAudioToggle(true)
        }
        
-       if(window.location.pathname === "/#accessories"){
+       if(window.location.hash === "#accessories"){
         return  setAccessoriesToggle(true)
        }
 
        
-   }, [])
+   }, [hashValue])
 
     return (
+      
         <div className="navOptions"> 
 
             {miPhoneToggle?   miPhones.map((item)=>(
